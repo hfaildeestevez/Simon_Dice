@@ -9,6 +9,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val empezarPartida: Button = findViewById(R.id.bJugar)
+
+        empezarPartida.setOnClickListener{
+
+            startGame()
+
+        }
+
+
+
     }
+
+    private fun startGame(){
+
+
+
+    }
+
 
 }
