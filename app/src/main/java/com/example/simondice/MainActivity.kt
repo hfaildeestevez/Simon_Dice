@@ -12,20 +12,19 @@ class MainActivity : AppCompatActivity() {
         val empezarPartida: Button = findViewById(R.id.bJugar)
 
         empezarPartida.setOnClickListener{
-
             startGame()
-
         }
 
-
-
     }
-
-    private fun startGame(){
-
-
-
+    private fun startGame() {
     }
-
+    private fun mostrarRonda() {
+    }
+    private fun ejecutarSecuencia() {
+    }
+    private fun mensajeUsuario() {
+    }
+    private fun comprobarSecuencia() {
+    }
 
 }
