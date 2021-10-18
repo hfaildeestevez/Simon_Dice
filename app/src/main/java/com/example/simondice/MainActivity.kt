@@ -2,6 +2,7 @@ package com.example.simondice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
@@ -12,11 +13,12 @@ class MainActivity : AppCompatActivity() {
         val empezarPartida: Button = findViewById(R.id.bJugar)
 
         empezarPartida.setOnClickListener{
-            startGame()
+            Log.INFO
+
+            mostrarRonda()
+            ejecutarSecuencia()
         }
 
-    }
-    private fun startGame() {
     }
     private fun mostrarRonda() {
     }
