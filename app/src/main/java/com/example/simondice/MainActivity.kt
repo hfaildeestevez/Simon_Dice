@@ -6,6 +6,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +34,6 @@ class MainActivity : AppCompatActivity() {
                 var contador=0
                     mostrarRonda(contador)
                     ejecutarSecuencia()
-
-
-
 
             }
 
@@ -64,5 +64,14 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    private fun lanzarCorrutina() {
+        val miTexto: TextView = findViewById(R.id.)
 
+        // 'launch' se encarga de crear una corrutina
+        // vamos a poder identificarla con 'job'
+        val job = GlobalScope.launch(Dispatchers.Main) {
+
+        }
+
+    }
 }
