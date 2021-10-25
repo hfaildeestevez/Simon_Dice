@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +17,21 @@ class MainActivity : AppCompatActivity() {
         // Llamo al Log para que me de informacion acerca de lo que esta pasando
         //Llamo a los metodos.
             empezarPartida.setOnClickListener{
+                val text = "GAME ON!"
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+
                 Log.i("estado" , "Boton play presionado")
                 var contador=0
                     mostrarRonda(contador)
                     ejecutarSecuencia()
-        }
+
+
+
+
+            }
 
     }
     //Método mostrar ronda
@@ -34,6 +45,8 @@ class MainActivity : AppCompatActivity() {
     //Metodo para que me de una secuencia a seguir
         private fun ejecutarSecuencia() {
             Log.i("Secuencia","Secuencia Ejecutada")
+
+
 
     }
 
