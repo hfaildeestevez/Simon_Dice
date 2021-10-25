@@ -17,13 +17,17 @@ class MainActivity : AppCompatActivity() {
         // Llamo al Log para que me de informacion acerca de lo que esta pasando
         //Llamo a los metodos.
             empezarPartida.setOnClickListener{
+
+                //Creo el texto que quiero que se muestre en la toast y el tamaño.
                 val text = "GAME ON!"
                 val duration = Toast.LENGTH_SHORT
-
+                //llamo a la toast para que se muestre.
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
 
                 Log.i("estado" , "Boton play presionado")
+
+                //Creo contador para que vaya acumulando las rondas
                 var contador=0
                     mostrarRonda(contador)
                     ejecutarSecuencia()
@@ -37,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     //Método mostrar ronda
         private fun mostrarRonda(contador:Int){
             Log.i("ronda", "Ronda mostrada")
-
+        //Añado el contenido del contador a un textView
         val t:TextView=findViewById(R.id.contadorRonda)
             t.setText("Ronda: "+contador.toString())
 
