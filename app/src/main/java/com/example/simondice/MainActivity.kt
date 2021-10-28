@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 Log.i("estado" , "Boton play presionado")
 
                 //Creo contador para que vaya acumulando las rondas
-                var contador=0
+                var contador=1
                     mostrarRonda(contador)
 
 
@@ -49,11 +49,13 @@ class MainActivity : AppCompatActivity() {
         //Añado el contenido del contador a un textView
         val t:TextView=findViewById(R.id.contadorRonda)
             t.setText("Ronda: "+contador.toString())
-
-    }
+        }
     //Metodo para que me de una secuencia a seguir
        suspend fun ejecutarSecuencia() {
             Log.i("Secuencia","Secuencia Ejecutada")
+
+
+
 
         delay(3000L)
         Log.i("estado", "Con delay")
