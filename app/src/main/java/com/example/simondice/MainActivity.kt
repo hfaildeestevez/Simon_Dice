@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +34,11 @@ class MainActivity : AppCompatActivity() {
                 //Creo contador para que vaya acumulando las rondas
                 var contador=0
                     mostrarRonda(contador)
+
+
+                val job= GlobalScope.launch (Dispatchers.Main){
                     ejecutarSecuencia()
+                }
 
             }
 
@@ -47,8 +52,11 @@ class MainActivity : AppCompatActivity() {
 
     }
     //Metodo para que me de una secuencia a seguir
-        private fun ejecutarSecuencia() {
+       suspend fun ejecutarSecuencia() {
             Log.i("Secuencia","Secuencia Ejecutada")
+
+        delay(3000L)
+        Log.i("estado", "Con delay")
 
 
 
@@ -64,14 +72,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun lanzarCorrutina() {
-        val miTexto: TextView = findViewById(R.id.)
 
-        // 'launch' se encarga de crear una corrutina
-        // vamos a poder identificarla con 'job'
-        val job = GlobalScope.launch(Dispatchers.Main) {
-
-        }
-
-    }
 }
