@@ -1,5 +1,6 @@
 package com.example.simondice
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +13,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    var contador=1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val empezarPartida: Button = findViewById(R.id.bJugar)
     //Listener para botón play.
@@ -32,22 +37,23 @@ class MainActivity : AppCompatActivity() {
                 Log.i("estado" , "Boton play presionado")
 
                 //Creo contador para que vaya acumulando las rondas
-                var contador=1
-                    mostrarRonda(contador)
 
+                    mostrarRonda()
 
                 val job= GlobalScope.launch (Dispatchers.Main){
-                    ejecutarSecuencia()
+                    secuenciaBotones()
                 }
 
             }
 
     }
     //Método mostrar ronda
-        private fun mostrarRonda(contador:Int){
+        private fun mostrarRonda(){
             Log.i("ronda", "Ronda mostrada")
         //Añado el contenido del contador a un textView
         val t:TextView=findViewById(R.id.contadorRonda)
+        contador++
+
             t.setText("Ronda: "+contador.toString())
         }
     //Metodo para que me de una secuencia a seguir
@@ -74,5 +80,32 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    suspend fun secuenciaBotones() {
+
+        // val secuencia = ronda +1
+        val Colores = arrayOf("#008000","#FFFF00","#3498DB","#EC4849")
+        var arrayBotones = hashMapOf<Int,Button>()
+        arrayBotones[0]= findViewById(R.id.bVerde)
+        arrayBotones[1]= findViewById(R.id.bAmarillo)
+        arrayBotones[2] = findViewById(R.id.bAzul)
+        arrayBotones[3] = findViewById(R.id.bRojo)
+
+        var secuencia:Array<Int> = arrayOf()
+        var random = (0..3).random()
+        secuencia = arrayOf(random)
+        for(i in 1..contador) {
+            delay(500L)
+            arrayBotones[contador]?.setBackgroundColor(Color.WHITE)
+            delay(500L)
+            arrayBotones[contador]?.setBackgroundColor(Color.parseColor(Colores[contador]))
+            //var todosColores = arrayListOf(cuatroColores[random])
+            //val b: Button = arrayBotones[random]!!
+            //delay(1000L)
+            //arrayBotones[ramdon]?.setBackgroundColor()
+            //b.foregroundTintList = ColorStateList.valueOf(Color.WHITE)
+        }
+        //return secuencia
+    }
+
 
 }
