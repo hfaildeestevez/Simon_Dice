@@ -15,7 +15,8 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     var contador=0
-
+    var listrandom:Array<Int> = arrayOf()
+    val secuencia: MutableList<Int> = listrandom.toMutableList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -80,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     suspend fun secuenciaBotones() {
 
         // val secuencia = ronda +1
@@ -90,14 +92,15 @@ class MainActivity : AppCompatActivity() {
         arrayBotones[2] = findViewById(R.id.bAzul)
         arrayBotones[3] = findViewById(R.id.bRojo)
 
-        var secuencia:Array<Int> = arrayOf()
+
         var random = (0..3).random()
-        secuencia = arrayOf(random)
-        for(i in 1..contador) {
+        secuencia.add(random)
+        val tamano = contador -1
+        for(i in 0..tamano) {
             delay(500L)
-            arrayBotones[contador]?.setBackgroundColor(Color.WHITE)
+            arrayBotones[secuencia[i]]?.setBackgroundColor(Color.WHITE)
             delay(500L)
-            arrayBotones[contador]?.setBackgroundColor(Color.parseColor(Colores[contador]))
+            arrayBotones[secuencia[i]]?.setBackgroundColor(Color.parseColor(Colores[secuencia[i]]))
             //var todosColores = arrayListOf(cuatroColores[random])
             //val b: Button = arrayBotones[random]!!
             //delay(1000L)
