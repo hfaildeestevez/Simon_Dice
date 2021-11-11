@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
         android:layout_marginLeft="161dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="432dp"
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
         android:text="Play"
@@ -81,5 +81,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/bComprobar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COMPROBAR"
+        app:backgroundTint="#361A75"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="507dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
