@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 empezarPartida.visibility=Button.INVISIBLE
                 ejecutarSecuencia()
                 //toast definida en mensajeUsuario
-                mensajeUsuario(2)
+                mensajeUsuario(1)
 
             }
         }
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 comprobarSecuencia()
 
             }else{
-                mensajeUsuario(5)
+               finalizarPartida()
             }
         }
         val bVerde:Button=findViewById(R.id.bVerde)
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         Log.i("Estado","Fin metodo mostrar ronda")
     }
     suspend fun ejecutarSecuencia(){
-        mensajeUsuario(1)
+
         Log.i("Estado","Se ejecuta el juego")
         //Se ejecuta la secuencia
         //El color de los botones se cambia a blanco durante medio segundo para simular un parpadeo
@@ -132,10 +132,10 @@ class MainActivity : AppCompatActivity() {
     private fun mensajeUsuario(key:Int){
         Log.i("Estado","Mensaje por toast al usuario")
         val mensaje =when{
-            key==1->"Ejecutando secuencia"
-            key==2->"Te toca!"
-            key==3->"Secuencia correcta!"
-            key==5->"Te faltan pulsar botones, al menos aprende a contar!"
+
+            key==1->"Te toca!"
+            key==2->"Secuencia correcta!"
+            key==4->"Te faltan pulsar botones, al menos aprende a contar!"
             else ->"Has pedido! Prueba otra vez!"
         }
         Toast.makeText(this.applicationContext, mensaje, Toast.LENGTH_SHORT).show()
@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
         if(compo){
             Log.i("Estado","siguiente ronda")
             mostrarRonda()
-            mensajeUsuario(3)
+            mensajeUsuario(2)
             contadorSecuencia=0
             comprobarSecuencia=arrayOf()
             corrutina()
@@ -177,13 +177,15 @@ class MainActivity : AppCompatActivity() {
         val empezarPartida: Button = findViewById(R.id.bJugar)
         empezarPartida.visibility=Button.VISIBLE
         comprobarSecuencia=arrayOf()
+        mensajeUsuario(9)
+
     }
     //corrutina que estoy reutilizando para que cada vez que acierte siga mostrando rondas
     fun corrutina(){
         GlobalScope.launch(Dispatchers.Main) {
             //llamo al metodo ejecutar Secuencia para que me ejecute el juego
             ejecutarSecuencia()
-            mensajeUsuario(2)
+            mensajeUsuario(1)
         }
     }
 }
